@@ -29,12 +29,13 @@ body {
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #f8f3f3;
   color: #212121;
   line-height: 1.5;
   letter-spacing: 0.04em;
 }
 
+/* #region 1-gallery */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -56,14 +57,16 @@ body {
 .gallery img:hover {
   transform: scale(1.05);
 }
+/* #endregion */
 
-/* #region task-4 */
+/* #region 1-form */
 .feedback-form {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   background: #FFFFFF;
   width: 408px;
-  height: 296px;
+  min-height: 296px;
   border-radius: 8px;
   padding: 24px 24px 80px 24px;
   gap: 16px;
@@ -72,45 +75,62 @@ body {
 .feedback-form label {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   gap: 8px;
-  width: 360px;
-  height: 72px;
   color: #2E2F42;
+  text-align: left;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 360px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
 }
 
 .feedback-form input {
-  width: 360px;
-  /* height: 72px; */
-  font-family: Montserrat, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-input[name="email"]:hover {
-  border: 1px solid #000000;
-}
-
-input[name="email"]:active {
-  border: 1px solid #808080;
-}
-
-input[name="email"]:active + label {
-  color: #2E2F42;
-  font-family: Montserrat, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.feedback-form button {
-  margin-top: 8px; 
-  width: 86px;
   height: 40px;
 }
 
-.login-form button:hover,
-.login-form button:active {
+.feedback-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.feedback-form input:hover,
+.feedback-form textarea:hover {
+  border: 1px solid #000000;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border: 1px solid #808080;
+}
+
+.feedback-form button {
+  color: #FFFFFF;
+  background: #4E75FF;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: transparent;
+  margin-top: 8px;
+  width: 86px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover,
+.feedback-form button:active {
   background: #6C8CFF;
 }
 /* #endregion */

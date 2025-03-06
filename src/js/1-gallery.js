@@ -85,9 +85,6 @@ const galleryMarkup = images
 
 galleryEl.insertAdjacentHTML("beforeend", galleryMarkup);
 
-// var lightbox = new SimpleLightbox('.gallery-link', { /* options */ });
-// var lightbox = $('.gallery a').simpleLightbox({ /* options */ });
-
 const lightbox = new SimpleLightbox(".gallery-item a", {
     captionsData: "alt",
     captionDelay: 250,
