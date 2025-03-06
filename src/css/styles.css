@@ -44,6 +44,8 @@ body {
   justify-content: center;
   align-items: center;
   list-style-type: none;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .gallery img {
@@ -65,7 +67,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   background: #FFFFFF;
-  width: 408px;
+  max-width: 408px;
   min-height: 296px;
   border-radius: 8px;
   padding: 24px 24px 80px 24px;
@@ -99,7 +101,7 @@ body {
 }
 
 .feedback-form textarea {
-  min-height: 80px;
+  height: 80px;
   resize: vertical;
 }
 

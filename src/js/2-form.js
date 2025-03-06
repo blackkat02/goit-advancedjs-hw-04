@@ -41,4 +41,5 @@ refs.feedbackform.addEventListener("submit", (event) => {
     console.log(refs.formData);
     localStorage.removeItem(refs.localStorageKey);
     refs.feedbackform.reset();
+    refs.formData = { email: "", message: "" };
 });
