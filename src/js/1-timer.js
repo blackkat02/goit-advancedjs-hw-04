@@ -24,7 +24,7 @@ let userSelectedDate = null;
 const showInvalidDateToast = () => {
   iziToast.show({
     title: "Invalid Date",
-    message: "Please select a future date!",
+    message: "Please choose a date in the future",
     backgroundColor: "#ff6666",
     position: "topRight",
   });
