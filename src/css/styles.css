@@ -33,104 +33,57 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* #region 1-timer */
-.container {
-  text-align: center;
-  margin: 50px auto;
-  max-width: 400px;
-  padding: 20px;
-  border: 2px solid #ccc;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  transition: transform 0.3s ease;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  text-align: center;
-
-  flex-grow: 1; /* Робить інпут розтяжним */
-  max-width: 70%;
+.gallery img:hover {
+  transform: scale(1.1);
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-
-  white-space: nowrap;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.timer {
+.info {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
-  padding: 10px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.field {
-  text-align: center;
-}
-
-.value {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-.label {
-  display: block;
-  font-size: 14px;
-  color: #666;
-  margin-top: 5px;
-}
-
-.input-group {
-  display: flex;
-  gap: 10px; /* Відступ між інпутом і кнопкою */
-  justify-content: center; /* Вирівнюємо по центру */
-  align-items: baseline; /* Вирівнюємо по вертикалі */
-}
-/* #endregion */
-
-/* #region 1-snackbar */
-label {
+.info-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start
+  align-items: center
 }
 
-fieldset {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 8px;
+#loader {
+  display: none;
+  width: 50px;
+  height: 50px;
+  font-size: 12px;
+  border: 5px solid #ccc;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
 }
 
-legend {
-  text-align: left;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-
-fieldset label {
-  align-items: baseline;
-  flex-direction: row;
-}
-/* #endregion */
