@@ -18,7 +18,7 @@ const showInvalidDateToast = () => {
 };
 
 function createPhotoCard({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) {
-    const card = document.createElement('div');
+    const card = document.createElement("li");
     card.classList.add('photo-card');
   
     card.innerHTML = `

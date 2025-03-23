@@ -10,7 +10,7 @@ const options = {
 };
 
 function showLoader(isLoading = false) {
-    const loader = document.getElementById("loader");
+    const loader = document.querySelector(".js-loader");
     loader.style.display = isLoading ? "block" : "none";
 }
 

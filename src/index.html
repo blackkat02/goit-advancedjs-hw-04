@@ -11,14 +11,14 @@
 
 <body>
 
-  <form action="/search" method="GET">
+  <form class="form" action="/search" method="GET">
     <input type="text" name="query" placeholder="Введіть пошуковий запит" required>
     <button type="submit">🔍 Search</button>
   </form>
 
-  <div id="loader">waiting</div>
+  <span class="loader js-loader visually-hidden">waiting</span>
 
-  <div class="gallery"></div>
+  <ul class="gallery"></ul>
 
   <script src="./main.js" type="module"></script>
 </body>

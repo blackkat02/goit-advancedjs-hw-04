@@ -1,4 +1,4 @@
-const listener = document.querySelector("form");
+const listener = document.querySelector(".form");
 
 import { handleSearch } from "./js/pixabay-api.js";
 
