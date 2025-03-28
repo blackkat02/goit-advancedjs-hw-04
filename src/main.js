@@ -1,5 +1,7 @@
-const listener = document.querySelector(".form");
+const listenerSubmit = document.querySelector(".form");
+const listenerClick = document.querySelector(".load-more-btn")
 
-import { handleSearch } from "./js/pixabay-api.js";
+import { handleSearch, handleClick } from "./js/pixabay-api.js";
 
-listener.addEventListener("submit", handleSearch);
+listenerSubmit.addEventListener("submit", handleSearch);
+listenerClick.addEventListener("click", handleClick);

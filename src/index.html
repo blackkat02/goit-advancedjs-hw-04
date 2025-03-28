@@ -10,17 +10,25 @@
 </head>
 
 <body>
+  <section class="section">
 
-  <form class="form" action="/search" method="GET">
-    <input type="text" name="query" placeholder="Введіть пошуковий запит" required>
-    <button type="submit">🔍 Search</button>
-  </form>
+    <form class="form" action="/search" method="GET">
+      <input type="text" name="query" placeholder="Введіть пошуковий запит" required>
+      <button type="submit">🔍 Search</button>
+    </form>
 
-  <span class="loader js-loader visually-hidden">waiting</span>
+    <ul class="gallery"></ul>
 
-  <ul class="gallery"></ul>
+    <div class="container">
+      <ul class="posts js-posts"></ul>
+      <button class="load-more-btn js-load-more is-hidden" type="button">Load more</button>
+    </div>
 
-  <script src="./main.js" type="module"></script>
+    <span class="loader js-loader visually-hidden">waiting</span>
+
+  </section>
+
+  <script src="./main.js" type="module" defer></script>
 </body>
 
 </html>
