@@ -8,18 +8,30 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import { dataTotalHits, page, per_page } from "./pixabay-api"
 
 const gallery = document.querySelector(".gallery");
-const messageEmpty = "Sorry, there are no images matching your search query. Please try again!";
+
 const messageEnd = "We're sorry, but you've reached the end of search results."
 let lightbox;
 
-const showIziToast = (title, message) => {
+const showIziToast = (message) => {
   iziToast.show({
-    title: "Invalid Request",
+    title: "Alert",
     message: message,
     backgroundColor: "#ff6666",
     position: "topRight",
   });
 };
+
+function smoothScroll() {
+  const card = document.querySelector('.photo-card');
+  if (!card) return;
+
+  const cardHeight = card.getBoundingClientRect().height;
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
+}
 
 function createPhotoCard({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) {
   const card = document.createElement("li");
@@ -65,10 +77,8 @@ function renderGallery(images) {
     showLoadMoreButton();
   } else {
     hideLoadMoreButton();
-    showIziToast();
+    showIziToast(messageEnd);
   }
-  
-  console.log(dataTotalHits)
 
   if (!lightbox) {
     lightbox = new SimpleLightbox(".gallery a", {
@@ -78,18 +88,18 @@ function renderGallery(images) {
   } else {
     lightbox.refresh();
   }
+
+  smoothScroll();
 };
 
 const loadMoreBtn = document.querySelector('.load-more-btn');
 
-// Функція для показу кнопки
 function showLoadMoreButton() {
   loadMoreBtn.classList.remove('is-hidden');
 }
 
-// Функція для приховування кнопки
 function hideLoadMoreButton() {
   loadMoreBtn.classList.add('is-hidden');
 }
 
-export { createPhotoCard, renderGallery, gallery };
+export { createPhotoCard, renderGallery, showIziToast, gallery };

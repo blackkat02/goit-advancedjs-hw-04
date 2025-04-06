@@ -1,6 +1,6 @@
 import axios from 'axios';
 import '../css/styles.css';
-import { createPhotoCard, renderGallery, gallery } from "./render-functions";
+import { createPhotoCard, renderGallery, showIziToast, gallery } from "./render-functions";
 
 const API_KEY = "49334918-ea87b03a35c8c75cd9fd8a30d";
 let query = "";
@@ -8,6 +8,7 @@ let page = 1;
 let per_page = 15;
 let dataTotalHits = 0;
 const btnLoadMore = document.querySelector(".load-more-btn");
+const messageEmpty = "Sorry, there are no images matching your search query. Please try again!";
 
 axios.defaults.baseURL = "https://pixabay.com/api/";
 
@@ -19,8 +20,7 @@ function showLoader(isLoading = false) {
 function handleSearch(event) {
     console.log("submit-start");
     event.preventDefault();
-    showLoader(true);
-    
+    showLoader(true);   
     page = 1;
 
     const input = event.target.querySelector("input[name='query']");
@@ -40,7 +40,6 @@ function handleSearch(event) {
 function handleClick() {
     showLoader(true);
     console.log("click-start");
-    console.log(query);
     if (query === "") {
         showLoader(false);
         console.log("not query");
@@ -61,11 +60,8 @@ function performSearch(query) {
             showLoader(false);
             const input = document.querySelector("input[name='query']");
             input.value = "";
-            console.log("ours:", query);
-
         });
 }
-
 
 async function getPhotos(query) {
     const params = {
@@ -82,16 +78,12 @@ async function getPhotos(query) {
         const response = await axios.get('/', { params });
         const data = response.data;
 
-        console.log(`"page:" ${page}`);
-        console.log(`"data.hits:" ${data.hits}`);
-        console.log(`Total images found: ${data.total}`);
-        console.log(`Total accessible images: ${data.totalHits}`);
         dataTotalHits = data.totalHits;
 
-        data.hits.forEach(image => {
-            const { webformatURL, largeImageURL, tags, likes, views, comments, downloads } = image;
-            createPhotoCard({ webformatURL, largeImageURL, tags, likes, views, comments, downloads });
-        });
+        if (dataTotalHits === 0) {
+            showIziToast(messageEmpty);
+            return
+        }
 
         renderGallery(data.hits);
     } catch (error) {
