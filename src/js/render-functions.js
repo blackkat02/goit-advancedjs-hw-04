@@ -102,4 +102,4 @@ function hideLoadMoreButton() {
   loadMoreBtn.classList.add('is-hidden');
 }
 
-export { createPhotoCard, renderGallery, showIziToast, gallery };
+export { createPhotoCard, renderGallery, showIziToast, gallery, hideLoadMoreButton };

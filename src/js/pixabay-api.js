@@ -1,6 +1,6 @@
 import axios from 'axios';
 import '../css/styles.css';
-import { createPhotoCard, renderGallery, showIziToast, gallery } from "./render-functions";
+import { createPhotoCard, renderGallery, showIziToast, gallery, hideLoadMoreButton } from "./render-functions";
 
 const API_KEY = "49334918-ea87b03a35c8c75cd9fd8a30d";
 let query = "";
@@ -20,6 +20,7 @@ function showLoader(isLoading = false) {
 function handleSearch(event) {
     console.log("submit-start");
     event.preventDefault();
+    hideLoadMoreButton();
     showLoader(true);   
     page = 1;
 
@@ -82,6 +83,7 @@ async function getPhotos(query) {
 
         if (dataTotalHits === 0) {
             showIziToast(messageEmpty);
+            gallery.innerHTML = "";
             return
         }
 
